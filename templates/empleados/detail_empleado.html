@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} {{object.full_name}} {% endblock %}
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+    <div class="grid-x grid-margin-x align-center">
+        <div class="cell large-6 card" style="width: 300px; margin-top: 10px;">
+            <div class="card-divider">
+                {{ empleados.get_job_display }}
+            </div>
+            {% if empleados.avatar %}
+                    <img src="{{ empleados.avatar.url }}">
+                {% else %}
+                    <img src="{% static 'img/no-avatar.jpg' %}">
+                {% endif %}
+            <div class="card-section">
+                <h4>{{ empleados.full_name }}</h4>
+                <p>{{ empleados.first_name }}</p>
+                <p>{{ empleados.last_name }}</p>
+                <p>{{ empleados.departamento.name }}</p><!--Aqui estoy llamando los modelos empleados, departamento y campo name de este ultimo-->
+                <p><span class="label">Habilidades</span></p>
+                <ul class="vertical menu">
+                    {% for h in empleados.habilidades.all %}
+                        <li>{{h.habilidad}}</li>                        
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+    
+    
+
+
+
