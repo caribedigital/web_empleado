@@ -4,7 +4,7 @@ from django.db import models
 class Departamento(models.Model):
     name = models.CharField('Nombre', max_length=50)
     short_name = models.CharField('Nombre Corto', max_length=20, unique=True)
-    anulate = models.BooleanField('Anulado', null=True)#pendiente del cambio de nullBooleanField por BooleanField y por arg (null=True) en django 4.0
+    anulate = models.BooleanField('Anulado', null=True)#cambiado de nullBooleanField por BooleanField y por arg (null=True) en django 4.0
 
     class Meta:
         verbose_name = 'Mi Departamento'
