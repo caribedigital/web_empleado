@@ -1,6 +1,7 @@
 from .base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
+#Este settings es para desarrollo local
 DEBUG = True
 
 ALLOWED_HOSTS = []
